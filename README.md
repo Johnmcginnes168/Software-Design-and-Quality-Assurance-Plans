@@ -1,18 +1,44 @@
+## Software Design and QA Testing Plans
 
+This document provides a comprehensive overview of the **Software Design Plan** and **Quality Assurance (QA) Test Plan** for the Endothon Finance website application. The purpose of this project is to correct the data-gathering logic of the application, ensuring it retrieves the correct financial data based on the business’s age. If the business is younger than five years, the application should forecast the missing data to complete a full five-year financial profile. Both the software design and the QA plan focus on ensuring the application operates efficiently, performs as expected, and meets the functional and non-functional requirements.
 
-## README Summary
+### **Software Design Plan Overview:**
+The Endothon Finance application collects financial data for businesses to generate a loan profile. However, a bug exists in the data-gathering logic, where the application incorrectly retrieves the first five years of financial data from the business’s establishment date instead of the last five fiscal years (excluding the current year). The design plan outlines the following objectives:
 
-This document outlines the **Quality Assurance (QA) Test Plan** for the Endothon Finance website application. The goal of the QA process is to ensure the application accurately retrieves the correct financial data for businesses, based on their age, and handles the logic for businesses younger than five years by forecasting the missing data. The test plan is structured to verify both the functional and non-functional requirements of the application, with a focus on data accuracy, performance, and error handling.
+1. **Correct Data Retrieval**:
+   - For businesses older than five years, retrieve the most recent five years of financial data, excluding the current fiscal year.
+   - For businesses younger than five years, use available historical data and forecast future data to create a complete five-year financial profile.
 
-### Key Objectives:
-1. **Correct Data Retrieval**: The application should retrieve the last five years of financial data for businesses older than five years, excluding the current fiscal year. For businesses younger than five years, the application must use available historical data and forecast the missing data to complete the five-year span.
-2. **Error Handling and Forecasting**: In cases where historical data is insufficient, the application should accurately forecast the financial data for the missing years.
-3. **Performance**: The application must retrieve data within a 2-second response time to maintain a seamless user experience.
+2. **Forecasting and Error Handling**: Ensure that businesses younger than five years have their missing financial data forecasted correctly and handle errors if the application fails to gather the correct data.
 
-### Testing Focus:
-- **Functional Testing**: Verifying the correct retrieval of historical data for businesses older than five years and the proper forecasting of data for businesses younger than five years.
-- **Non-Functional Testing**: Ensuring the system performs within the required response time and that the modular structure supports future updates without disrupting functionality.
-- **Testing Strategy**: The testing will begin with unit tests for individual components (historical data retrieval and forecasting logic), followed by integration tests to verify the combination of historical and forecasted data, and system tests to measure the overall performance under load.
+3. **Modular Architecture**: Build the app with a modular architecture to enable easy updates and enhancements in future iterations.
 
-### Out-of-Scope:
-- The design or enhancement of the user interface and adding new features to the workflow are not part of this QA process. The focus is solely on correcting the data retrieval logic and forecasting functionality.
+4. **Agile Development**: Use an agile methodology to allow for iterative development and continuous testing to meet evolving business requirements.
+
+### **Quality Assurance Test Plan Overview:**
+The QA Test Plan ensures that the application meets both functional and non-functional requirements. The goal is to verify that the application retrieves the correct financial data, forecasts missing data for young businesses, and performs within the specified time constraints.
+
+1. **Functional Requirements**:
+   - Verify that the application retrieves the last five years of financial data for businesses older than five years.
+   - For businesses younger than five years, ensure that the app correctly forecasts the missing years and generates a full five-year profile.
+   - **Metrics**: Data accuracy, response time (within 2 seconds), and effective error handling.
+
+2. **Non-Functional Requirements**:
+   - **Performance**: Ensure that data is retrieved within 2 seconds.
+   - **Scalability**: Confirm that the modular architecture supports future updates and enhancements without disrupting existing functionality.
+
+3. **Testing Strategy**:
+   - **Unit Tests**: Test individual components, such as retrieving historical data and forecasting for young businesses.
+   - **Integration Tests**: Verify the combined functionality of data retrieval and forecasting.
+   - **System Tests**: Measure system performance to ensure that the application meets the required response time under expected load.
+
+4. **Out-of-Scope**:
+   - Redesigning the user interface and adding new features to the workflow are not included in the scope of this QA process. The focus is solely on fixing the data retrieval and forecasting logic.
+
+### **Key Goals Across Both Plans**:
+- **Data Accuracy**: Ensure the application retrieves the correct historical data or forecasts future data accurately.
+- **User Experience**: Maintain a smooth and efficient user experience by meeting the required performance (2-second response time).
+- **Adaptability**: Ensure that the application’s modular structure allows for future scalability and enhancements without affecting core functionality.
+
+This comprehensive approach will allow the Endothon Finance website application to function correctly and efficiently, fulfilling both current business needs and future expansion possibilities.
+
